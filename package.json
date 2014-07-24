@@ -1,0 +1,18 @@
+{
+    "name": "silentor",
+    "version": "0.0.1",
+    "description": "Blog generator base on Node.js and markdown.",
+    "author": "Jayin Ton <tonjayin@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "mkdirp": "0.5.0"
+        
+    },
+    "devDependencies": {
+         
+    },
+    "main": "index",
+    "engines": {
+        "node": "0.10.29"
+    }
+}

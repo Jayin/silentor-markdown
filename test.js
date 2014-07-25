@@ -11,8 +11,28 @@ function test1() {
 	});
 }
 
-console.log("{Jayin}".replace('Jayin','Ton'));
 
-var a = './md';
-var b = './html'
-console.log(a.replace(a,b));
+
+// var render  = require('./lib/render');
+// render.render();
+
+// var P = require('./lib/P');
+// var t =P.from('Hello {name} ').put('name','Jayin').format();
+// console.log(t);
+
+// var a ={
+// 	name:"jayin",
+// 	no:"1",
+// 	friends:[1,2,3,4],
+// 	go:function(){
+// 		console.log("go!");
+// 	}
+// }
+
+// for (var attr in a){
+// 	console.log(typeof a[attr]);
+
+// 	console.log('key = '+attr+' value='+a[attr]);
+// }
+
+console.log("ab.md".split('.')[0]);

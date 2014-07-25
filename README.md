@@ -7,8 +7,8 @@ Blog generator base on Node.js and markdown.
 
 To-do
 ===
-- [ ] generate the html with given markdown. 
-- [ ] base on one config file
+- [x] generate the html with given markdown. 
+- [x] base on one config file
 - [ ] support comment
 - [ ] syntax hight light
 - [ ] blog sort by time

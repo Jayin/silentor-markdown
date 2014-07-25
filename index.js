@@ -28,13 +28,6 @@ function transalte(input_file, output_file, callback) {
 		}
 	}
 }
-///////bug:
-// ./md
-// ./html
-// ./md-->./html
-// ./md/a.md-->./html/a.md
-// md/01-->md/01
-// md/01/ok.md-->md/01/ok.md
 
 walker.walkSync(input_folder, function(current_path, dirs, names) {
 	names.forEach(function(element, index, array) {
@@ -46,8 +39,8 @@ walker.walkSync(input_folder, function(current_path, dirs, names) {
 		if (!fs.existsSync(tmp_output_folder))
 			mkdirp.sync(tmp_output_folder);
 	
-		console.log(current_path + '-->'+ tmp_output_folder);
-		console.log(input_file +'-->'+output_file);
+		// console.log(current_path + '-->'+ tmp_output_folder);
+		// console.log(input_file +'-->'+output_file);
 		transalte(input_file, output_file, function(err, content) {
 			if(err)
 				console.log(err);

@@ -6,14 +6,36 @@ var walker = require('./lib/filewalker');
 var path = require('path');
 var render = require('./lib/render');
 
-
+//config
 var input_folder = config.input_folder;
 var output_folder = config.output_folder;
+
+
 console.log(input_folder);
 console.log(output_folder);
 
+// clean up output folder
+if (fs.existsSync(output_folder)){
+	deleteFolderRecursive = function(path) {
+		var files = [];
+		if (fs.existsSync(path)) {
+			files = fs.readdirSync(path);
+			files.forEach(function(file, index) {
+				var curPath = path + "/" + file;
+				if (fs.statSync(curPath).isDirectory()) { // recurse
+					deleteFolderRecursive(curPath);
+				} else { // delete file
+					fs.unlinkSync(curPath);
+				}
+			});
+			fs.rmdirSync(path);
+		}
+	};
+	deleteFolderRecursive(output_folder);
+}
 
-function transalte(input_file, output_file, callback) {
+
+function md2html(input_file, output_file, callback) {
 	if (fs.existsSync(input_file)) {
 
 		//marked
@@ -46,15 +68,15 @@ walker.walkSync(input_folder, function(current_path, dirs, names) {
 		if (!fs.existsSync(tmp_output_folder))
 			mkdirp.sync(tmp_output_folder);
 
-		console.log(current_path + '-->'+ tmp_output_folder);
-		console.log(input_file +'-->'+output_file);
-		transalte(input_file, output_file, function(err, content) {
+		// console.log(current_path + '-->'+ tmp_output_folder);
+		// console.log(input_file +'-->'+output_file);
+		md2html(input_file, output_file, function(err, content) {
 			if (err)
 				console.log(err);
 			// else
 			// 	console.log(content);
 		});
 
-		 
+
 	});
 });

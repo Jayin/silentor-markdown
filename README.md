@@ -13,3 +13,6 @@ To-do
 - [ ] syntax hight light
 - [ ] blog sort by time
 - [ ] support page
+- [ ] beautify Home Page
+ - [ ] 鼠标移动到文章标题时，不用默认属性
+ - [ ] 更换适用中文字体

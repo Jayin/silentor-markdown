@@ -102,11 +102,22 @@ function generateHomePage(items) {
 	var home_content = render.render(config.template_home, {
 		"blog_name": config.blog_name,
 		"description": config.description,
-		"posts": posts,
-		"title": config.blog_name
+		"title": config.blog_name,
+		"posts": posts
 	});
 	// console.log(home_content);
 	fs.writeFileSync('./index.html', home_content, 'UTF-8');
 }
 
+function genAboutPage() {
+	var md = marked(fs.readFileSync(config.about, 'UTF-8'));
+	fs.writeFileSync('./about.html', render.render(config.template_about, {
+		"blog_name": config.blog_name,
+		"description": config.description,
+		"title": config.blog_name,
+		"content":md
+	}), 'UTF-8');
+}
+
 generateHomePage(items);
+genAboutPage();

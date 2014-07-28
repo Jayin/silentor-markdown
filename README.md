@@ -1,5 +1,6 @@
-silentor ![license](http://img.shields.io/badge/license-MIT-brightgreen.svg)
+silentor ![build status](https://travis-ci.org/Jayin/silentor.svg?branch=gh-pages)
 ===
+
 >Just keep silent,write down you markdown.
 
 Blog generator base on Node.js and markdown.
@@ -16,3 +17,8 @@ To-do
 - [ ] beautify Home Page
  - [ ] 鼠标移动到文章标题时，不用默认属性
  - [ ] 更换适用中文字体
+
+
+License
+===
+MIT

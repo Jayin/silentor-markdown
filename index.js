@@ -5,6 +5,7 @@ var config = require('./config');
 var walker = require('./lib/filewalker');
 var path = require('path');
 var render = require('./lib/render');
+var poster = require('./lib/poster');
 
 //config
 var input_folder = config.input_folder;
@@ -15,7 +16,8 @@ console.log(input_folder);
 console.log(output_folder);
 
 // clean up output folder
-if (fs.existsSync(output_folder)){
+if (fs.existsSync(output_folder)) {
+	console.log("start to clean output folder");
 	deleteFolderRecursive = function(path) {
 		var files = [];
 		if (fs.existsSync(path)) {
@@ -32,6 +34,7 @@ if (fs.existsSync(output_folder)){
 		}
 	};
 	deleteFolderRecursive(output_folder);
+	console.log("clean up finished");
 }
 
 
@@ -58,11 +61,13 @@ function md2html(input_file, output_file, callback) {
 	}
 }
 
+var items = [];
+//md -> html
 walker.walkSync(input_folder, function(current_path, dirs, names) {
 	names.forEach(function(element, index, array) {
 		// var input_file = current_path + path.sep + element;
 		var input_file = current_path + path.sep + element;
-		var output_file = input_file.replace(input_folder, output_folder).replace('md','html');
+		var output_file = input_file.replace(input_folder, output_folder).replace('md', 'html');
 		var tmp_output_folder = current_path.replace(input_folder, output_folder)
 
 		if (!fs.existsSync(tmp_output_folder))
@@ -77,6 +82,31 @@ walker.walkSync(input_folder, function(current_path, dirs, names) {
 			// 	console.log(content);
 		});
 
-
+		items.push(poster.build(output_file));
 	});
 });
+
+
+
+// console.log(posts);
+
+function generateHomePage(items) {
+
+	var posts = '';
+	items.forEach(function(element, index) {
+		posts += render.render(config.template_item, element);
+	});
+
+	// items.forEach(function(e){console.log(e)});
+	// console.log(posts);
+	var home_content = render.render(config.template_home, {
+		"blog_name": config.blog_name,
+		"description": config.description,
+		"posts": posts,
+		"title": config.blog_name
+	});
+	// console.log(home_content);
+	fs.writeFileSync('./index.html', home_content, 'UTF-8');
+}
+
+generateHomePage(items);

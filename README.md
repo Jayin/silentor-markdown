@@ -1,4 +1,4 @@
-silentor ![build status](https://travis-ci.org/Jayin/silentor.svg?branch=gh-pages)
+silentor ![build status](https://travis-ci.org/Jayin/silentor.svg?branch=master)
 ===
 
 >Just keep silent,write down you markdown.

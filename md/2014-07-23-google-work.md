@@ -1,10 +1,10 @@
 abc
+abc
 ===
 
 **strong word**
 
 * node.js
-* php
 
 
 ~|~

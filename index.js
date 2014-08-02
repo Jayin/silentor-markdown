@@ -86,7 +86,18 @@ walker.walkSync(input_folder, function(current_path, dirs, names) {
 	});
 });
 
+//sort with post time
+items.sort(function (a,b){
+	if(a.year < b.year)
+		return 1;
+	if(a.month < b.month)
+		return 1;
+	if(a.day < b.day)
+		return 1;
+	return 0;
 
+});
+ 
 
 // console.log(posts);
 

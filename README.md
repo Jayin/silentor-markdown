@@ -10,9 +10,9 @@ To-do
 ===
 - [x] generate the html with given markdown. 
 - [x] base on one config file
-- [ ] support comment
+- [x] support comment
 - [ ] syntax hight light
-- [ ] blog sort by time
+- [x] post sort by time
 - [ ] support page
 - [ ] beautify Home Page
  - [ ] 鼠标移动到文章标题时，不用默认属性

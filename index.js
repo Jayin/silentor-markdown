@@ -46,7 +46,9 @@ function md2html(input_file, output_file, callback) {
 		//render
 		var render_content = render.render(config.template_file, {
 			'title': config.blog_name,
-			'content': content
+			'content': content,
+			'post_title':poster.build(input_file).post_title,
+			'post_time' :poster.build(input_file).post_time
 		})
 
 		fs.writeFileSync(output_file, render_content, 'UTF-8');

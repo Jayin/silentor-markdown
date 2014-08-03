@@ -1,6 +1,7 @@
 module.exports = {
 	"blog_name": "Jayin",
 	"description":"Life is short ,I use Python.",
+	"max_page":10,
 	"about":"./about.md",
 	"input_folder": "./md",
 	"output_folder": "./html",

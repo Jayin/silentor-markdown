@@ -11,7 +11,7 @@ To-do
 - [x] generate the html with given markdown. 
 - [x] base on one config file
 - [x] support comment
-- [ ] syntax hight light
+- [x] syntax hight light
 - [x] post sort by time
 - [ ] support page
 - [ ] beautify Home Page
